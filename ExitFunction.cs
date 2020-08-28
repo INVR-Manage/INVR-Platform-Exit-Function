@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class ExitFunction : MonoBehaviour
 {
-    
-	// HOW TO USE
+    // HOW TO USE
     // 1. set script in hierachy (for example in an manager object). Make sure that it stays persistent.
-    // 2. call "ExitFunction.Instance.ExitExperience();" at the place you want to quit the application.
+    // 2. call "ExitFunction.ExitExperience();" at the place you want to quit the application.
     //   (i.e. by pressing a specific button or through the menu)
 
 
@@ -25,8 +24,6 @@ public class ExitFunction : MonoBehaviour
     [System.Runtime.InteropServices.DllImport("user32.dll")]
     private static extern int SetForegroundWindow(IntPtr hwnd);
 
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    static extern bool GetWindowPlacement(IntPtr hWnd, ref Windowplacement lpwndpl);
 
     private enum ShowWindowEnum
     {
@@ -36,16 +33,6 @@ public class ExitFunction : MonoBehaviour
         Minimize = 6, ShowMinNoActivate = 7, ShowNoActivate = 8,
         Restore = 9, ShowDefault = 10, ForceMinimized = 11
     };
-
-    private struct Windowplacement
-    {
-        public int length;
-        public int flags;
-        public int showCmd;
-        public System.Drawing.Point ptMinPosition;
-        public System.Drawing.Point ptMaxPosition;
-        public System.Drawing.Rectangle rcNormalPosition;
-    }
 
     private void Awake()
     {
