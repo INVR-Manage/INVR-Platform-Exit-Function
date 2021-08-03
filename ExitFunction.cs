@@ -42,7 +42,7 @@ public class ExitFunction : MonoBehaviour
     public void ExitExperience()
     {
         IntPtr wdwIntPtr = (IntPtr)(-1);
-        wdwIntPtr = FindWindow(null, "MIFF_INVR"); // this needs to be the name of the INVR Platform software
+        wdwIntPtr = FindWindow(null, "INVR_Platform"); // this needs to be the name of the INVR Platform software
 
         if (wdwIntPtr == (IntPtr)0)
         {
